@@ -1,0 +1,9 @@
+# Directories
+/node_modules
+/venv
+
+# Files
+
+# Extensions
+*.pyc
+
