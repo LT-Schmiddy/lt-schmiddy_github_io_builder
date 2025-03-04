@@ -1,3 +1,22 @@
 body {
-    color: blue;
+    background-color: black;
+    color: greenyellow;
+    font-family: 'Courier New', Courier, monospace;
+
+    nav {
+        visibility: collapse;
+    }
+
+    #main-container {
+        width: 80vw;
+
+        header {
+            display: block;
+            background-color: #333333;
+            padding: 10px;
+
+            
+        }
+        
+    }
 }

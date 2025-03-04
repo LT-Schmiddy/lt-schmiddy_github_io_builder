@@ -14,7 +14,7 @@ def main():
     b.add_style(proot.joinpath("./src/sass/main.scss"), "main.css");
     b.add_script(proot.joinpath("./src/ts/main.ts"), "bundle.js");
     
-    b.add_page("base.html", "index.html", "Home", title="Home", desc="LT_Schmiddy Stuff")
+    b.add_page("index.html", "index.html", "Home", title="Home", desc="LT_Schmiddy's Stash")
     
     b.build_all()
     

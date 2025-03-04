@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     {# <meta name="viewport" content="width=device-width, initial-scale=1"> #}
 
-    <title>{{title}}</title>
+    <title>{{title}} - LT_Schmiddy's Stash</title>
 
     {% for key, value in meta.items() %}
         <meta property="{{key}}" content="{{value}}"/>
@@ -17,11 +17,24 @@
         <link rel="stylesheet" href="{{ i.get_rsrc_path() }}"/> 
     {% endfor %}
     {% for i in scripts %}
-        <script type="text/javascript" src="{{ i.get_rsrc_path() }}"></script>
+        <script type="text/javascript" src="{{ i.get_rsrc_path() }}" defer></script>
     {% endfor %}
 </head>
 
 <body>
+    {% include "./cmpts/nav.html" %}
 
+    <div id="main-container">
+        <header>
+            <h1 >$ <span class="terminal-typeout">LT_Schmiddy's Stash</span>|</h1>
+        </header>
+        
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+        <footer>
+            Copyright: Alex Schmid, 2025
+        </footer>
+    </div>
 </body>
 </html>
