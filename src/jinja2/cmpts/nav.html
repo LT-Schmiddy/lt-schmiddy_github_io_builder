@@ -1,3 +1,10 @@
 <nav>
-Navigation:
+    <details open=true>
+        <summary>Navigation:</summary>
+        <ul>
+            {% for key, value in get_nav().items() %}
+                <li>{{key}}</li>
+            {% endfor %}
+        </ul>
+    </details>
 </nav>

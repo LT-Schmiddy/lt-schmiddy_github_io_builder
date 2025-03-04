@@ -61,9 +61,16 @@ class MainBuilder:
                 "og:url": "https://www.sitepoint.com/a-basic-html5-template/",
                 "og:description": "Base template for LT-Schmiddy.Github.io",
                 "og:image": "image.png"
-                
-            }
+            },
+            "get_nav": self.get_nav_table
         }
+    
+    def get_nav_table(self) -> dict[str, str]:
+        retVal = {}
+        for i in self.pages:
+            retVal[i.nav_str] = ""
+            
+        return retVal
     
     def get_rsrc(self, rsrc: str)->str:
         return str(self._site_rcsc_root_rel.joinpath(rsrc)).replace("\\", "/")
