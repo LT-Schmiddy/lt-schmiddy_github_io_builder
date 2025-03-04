@@ -5,11 +5,13 @@ from jinja2 import Environment, FileSystemLoader
 from .style import StyleBuilder
 from .script import ScriptBuilder
 from .page import PageBuilder
+from .markdown_handler import MarkdownHandler
 
 from .utils import recursive_update_dict
     
 class MainBuilder:
     proot: Path
+    template_root: Path
     site_root: Path
     site_rsrc_root: Path
     _site_rcsc_root_rel: Path
@@ -18,12 +20,13 @@ class MainBuilder:
     scripts: list[ScriptBuilder]
     pages: list[PageBuilder]
     
-    env: Environment
+    md: MarkdownHandler
+    env: Environment   
     
-    
-    def __init__(self, proot: Path, template_root: Path, site_root: Path, site_rsrc_root: Path):
+    def __init__(self, proot: Path, template_root: Path, markdown_root: Path, site_root: Path, site_rsrc_root: Path):
         self.proot = proot
         self.template_root = template_root
+        self.markdown_root = markdown_root
         self.site_root = site_root
         self.site_rsrc_root = site_rsrc_root
         
@@ -33,6 +36,8 @@ class MainBuilder:
         self.scripts = []
         self.pages = []
 
+        self.md = MarkdownHandler(self.markdown_root)
+        
         self.env = Environment(
             loader=FileSystemLoader(self.template_root),
             trim_blocks = True,
@@ -43,8 +48,9 @@ class MainBuilder:
             ]            
         )
         
-        self.env.make_globals({
-            "get_rsrc": self.get_rsrc
+        self.env.globals.update({
+            "get_rsrc": self.get_rsrc,
+            "md": self.md
         })
     
     def get_default_jinja_args(self):
