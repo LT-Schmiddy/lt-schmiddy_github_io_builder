@@ -3,7 +3,7 @@
         <summary>Navigation:</summary>
         <ul>
             {% for key, value in get_nav().items() %}
-                <li>{{key}}</li>
+                <li><a href="{{value}}">{{key}}</a></li>
             {% endfor %}
         </ul>
     </details>

@@ -68,7 +68,7 @@ class MainBuilder:
     def get_nav_table(self) -> dict[str, str]:
         retVal = {}
         for i in self.pages:
-            retVal[i.nav_str] = ""
+            retVal[i.nav_str] = str(i.out_file.relative_to(self.site_root)).replace("\\", "/")
             
         return retVal
     
