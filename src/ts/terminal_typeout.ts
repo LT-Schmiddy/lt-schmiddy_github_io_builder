@@ -69,6 +69,7 @@ $(()=>{
         term_type_controllers.push(new TerminalTypeoutController(<HTMLElement>item));
     }
 
+    // Handling header:
     let header_typeout = $("#header-typeout");
     let header_blink = $("#header-blink");
 

@@ -8,6 +8,12 @@ class MarkdownHandler:
     
     def __init__(self, p_markdown_root: Path, **kwargs):
         self.markdown_root = p_markdown_root
+        
+        if 'extensions' not in kwargs:
+            kwargs['extensions'] = [
+                "extra"
+            ]
+        
         self.converter = markdown.Markdown(**kwargs)
         
     def load(self, file_path: str):

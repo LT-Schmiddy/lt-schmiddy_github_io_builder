@@ -50,15 +50,16 @@ class MainBuilder:
         
         self.env.globals.update({
             "get_rsrc": self.get_rsrc,
-            "md": self.md
+            "md": self.md,
+            "get_nav": self.get_nav_table,
+            "scripts": self.scripts,
+            "styles": self.styles,
+            "pages": self.pages
         })
     
     def get_default_jinja_args(self):
         return {
             "title": "Base page template",
-            "scripts": self.scripts,
-            "styles": self.styles,
-            "pages": self.pages,
             "meta": {
                 "description": "Base template for LT-Schmiddy.Github.io",
                 "author": "LT_Schmiddy",
@@ -67,8 +68,7 @@ class MainBuilder:
                 "og:url": "https://www.sitepoint.com/a-basic-html5-template/",
                 "og:description": "Base template for LT-Schmiddy.Github.io",
                 "og:image": "image.png"
-            },
-            "get_nav": self.get_nav_table
+            }
         }
     
     def get_nav_table(self) -> dict[str, str]:
