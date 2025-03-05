@@ -65,7 +65,7 @@ class MainBuilder:
                 "author": "LT_Schmiddy",
                 "og:title": "A Basic HTML5 Template",
                 "og:type": "website",
-                "og:url": "https://www.sitepoint.com/a-basic-html5-template/",
+                "og:url": "https://lt-schmiddy.github.io/",
                 "og:description": "Base template for LT-Schmiddy.Github.io",
                 "og:image": "image.png"
             }
@@ -97,7 +97,8 @@ class MainBuilder:
             recursive_update_dict(pass_args, jinja_args)
             
         if title is not None:
-            pass_args["title"] = title
+            pass_args["title"] = f"{title} - LT_Schmiddy's Stash"
+            pass_args["meta"]["og:title"] = f"{title} - LT_Schmiddy's Stash"
         
         if desc is not None:
             pass_args["meta"]["description"] = desc
