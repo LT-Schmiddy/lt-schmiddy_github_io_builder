@@ -1,4 +1,4 @@
-import pathlib, shutil
+import pathlib, shutil, json
 from pathlib import Path
 
 from site_builder import MainBuilder
@@ -21,6 +21,13 @@ def main():
         title="EZTR", desc="EZ Text Replacer for Zelda64Recompiled",
         jinja_args={
             "markdown_doc": "EZTR.md"
+        }
+    )
+    
+    b.add_page("recomp_mods_page.html", "recomp_mods.html", "Zelda64Recompiled/Mods",
+        title="EZTR", desc="Mods for Zelda64Recompiled",
+        jinja_args={
+            "mods": json.loads(proot.joinpath("./src/data/z64r_mods.json").read_text())["mods"]
         }
     )
     

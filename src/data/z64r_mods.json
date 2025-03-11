@@ -1,0 +1,12 @@
+{
+    "mods": [
+        {
+            "name": "Mod Name",
+            "desc": "Description",
+            "links": {
+                "Source":"",
+                "Thunderstore Page":""
+            }
+        }
+    ]
+}

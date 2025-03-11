@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    Zelda64Recomp Mods
+</h1>
+<p>
+    Zelda64Recomp is a fan-made port of <em>The Legend of Zelda: Majora's Mask</em> for modern Windows and Linux computers. 
+    The project uses the N64Recomp toolset created by Wiseguy on GitHub. In addition to many built-in improvements, The port 
+    features a powerful modding framework, allowing for new features and improvements to be added to the game.
+</p>
+<p>
+    Below is a list of every mod I've made for Zelda64Recomp, along with any relevant links.
+</p>
+
+{% for mod in mods %}
+    <h2>{{ mod["name"] }}</h2>
+    <p>
+        {{ mod["desc"] }}
+    </p>
+    <ul>
+        {% for key, value in mod["links"].items() %}
+            <li><a href="{{value}}">{{key}}</a></li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+{% endblock content %}

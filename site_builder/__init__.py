@@ -36,7 +36,9 @@ class MainBuilder:
         self.scripts = []
         self.pages = []
 
-        self.md = MarkdownHandler(self.markdown_root)
+        self.md = MarkdownHandler(self.markdown_root, extensions=[
+            "extra"
+        ])
         
         self.env = Environment(
             loader=FileSystemLoader(self.template_root),

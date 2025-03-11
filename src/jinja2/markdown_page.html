@@ -2,6 +2,6 @@
 
 {% block content %}
     <div id="markdown-doc">
-        {{ md.load(markdown_doc)|safe }}
+        {{ md.load_src(markdown_doc)|safe }}
     </div>
 {% endblock content %}
